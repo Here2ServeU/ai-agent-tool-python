@@ -1,6 +1,6 @@
 # weather_server.py — your first MCP server
 # Install: pip install "mcp[cli]" openai
-# Python:  3.11 required (shared dependency chain with CrewAI)
+# Python:  3.11 required (shared dependency chain with common agent frameworks)
 # Run:     python3 weather_server.py   (macOS/Linux)
 #          python  weather_server.py   (Windows)
 #
@@ -25,7 +25,7 @@ def get_forecast(city: str) -> str:
     return fake_weather.get(city.lower(), "No forecast available for that city.")
 
 
-# ── Lab 8.3: the second tool — added to the server, with ZERO changes to the agent.
+# ── The second tool — added to the server, with ZERO changes to the agent.
 # This is the whole promise of MCP: build the tool once, every agent discovers it.
 @mcp.tool()
 def packing_advice(forecast: str) -> str:

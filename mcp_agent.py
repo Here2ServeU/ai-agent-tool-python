@@ -8,8 +8,8 @@
 #
 # You only run THIS file. It launches weather_server.py for you (one command,
 # no second terminal). The agent asks the server what tools it has
-# (list_tools) — you never write the tool schema by hand like in Module 4 —
-# then GPT-4o decides which tool to call (call_tool).
+# (list_tools) — you never write the tool schema by hand — then the model
+# decides which tool to call (call_tool).
 
 import asyncio, json
 from openai import OpenAI
@@ -54,9 +54,9 @@ async def run_agent(goal):
                         "tool_call_id": tc.id, "content": text})
 
 
-# Lab 8.2 goal: one tool.
+# One-tool goal:
 #   asyncio.run(run_agent("What is the weather in Chicago today?"))
-# Lab 8.3 goal: two tools — same agent file, no edits, it discovers
-# packing_advice on the server automatically and calls both in order.
+# Two-tool goal — same agent file, no edits: it discovers packing_advice on
+# the server automatically and calls both tools in order.
 asyncio.run(run_agent(
     "What is the weather in Miami today, and what should I pack?"))
